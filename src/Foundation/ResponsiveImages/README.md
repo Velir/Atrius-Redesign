@@ -43,7 +43,7 @@ Crops are saved as child items of the originally uploaded image.  This allows th
 The `ResponsiveGlassView` extends the functionality of Glass.Mapper's `GlassView` to add retina image support to valid images.  If an image width is specified, and the sourced image is at least 2x of the requested width, the `srcset` attribute will be added to the `<img />` tag.  This functionality is built into the `RenderImage` and `Editable` functions of `ResponsiveGlassView`. Below is an example of using the `ResponsiveGlassView` in a Razor View:
 
 ```
-@inherits Thread.Foundation.ResponsiveImages.Mvc.ResponsiveGlassView<My.GlassModel.IImage>
+@inherits AtriusHealth.Foundation.ResponsiveImages.Mvc.ResponsiveGlassView<My.GlassModel.IImage>
 
 @RenderImage(model => model.Image, new { mw = 500 }, true)
 ```
@@ -51,5 +51,5 @@ The `ResponsiveGlassView` extends the functionality of Glass.Mapper's `GlassView
 As long as the image in Sitecore is at least 1000px wide the resulting image tag will look something like:
 
 ```
-<img src="/-/media/some-img.jpg?mw=500&hash=somehash" srcset="1x /-/media/some-img.jpg?mw=500&hash=somehash, 2x /-/media/some-img.jpg?mw=1000&hash=someotherhash" alt="Some Alt Text" />
+<img src="/img/some-img.jpg?mw=500&hash=somehash" srcset="1x /img/some-img.jpg?mw=500&hash=somehash, 2x /img/some-img.jpg?mw=1000&hash=someotherhash" alt="Some Alt Text" />
 ```

@@ -1,5 +1,4 @@
-@import "../../../scss/variables/_colors.scss";
-@import "../../../scss/variables/_breakpoints.scss";
+@import "../../../scss/variables/index";
 
 .global-footer {
   .container--connect {
@@ -8,14 +7,13 @@
 
   .site-logo {
     clear: both;
-    margin-bottom: 32px;
   }
 
   .site-logo__link {
     max-width: 112px;
   }
 
-  @media (max-width: $bp-large-max) {
+  @media (--bp-large-max) {
     .site-logo {
       margin-right: auto;
       margin-left: auto;
@@ -28,8 +26,6 @@
     }
   }
 
-
-
   .copyright,
   .footer-links {
     display: block;
@@ -38,7 +34,7 @@
     text-align: center;
   }
 
-  @media (min-width: $bp-large-min) {
+  @media (--bp-large-min) {
     .copyright {
       float: left;
     }

@@ -1,6 +1,6 @@
-const svgstore = require("svgstore");
-const fs = require("fs");
-const R = require("ramda");
+import svgstore from "svgstore";
+import fs from "fs";
+import * as R from "ramda";
 
 /**
  * Usage: put svg's in svg.src directory.  eg. /img/svg-sprite/my-icon.svg
@@ -11,7 +11,7 @@ const R = require("ramda");
  * In css: svg { fill: BlanchedAlmond; }
  */
 
-module.exports = function svgSprite(userConfig) {
+export default function svgSprite(userConfig) {
   const defaultConfig = {
     /**
      * src   : glob of files to copy
@@ -51,4 +51,4 @@ module.exports = function svgSprite(userConfig) {
   });
 
   return {};
-};
+}

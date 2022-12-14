@@ -1,5 +1,4 @@
-@import "../../../scss/variables/_colors.scss";
-@import "../../../scss/variables/_mixins.scss";
+@import "../../../scss/variables/index";
 
 .breadcrumbs {
   padding-top: 20px;
@@ -12,7 +11,7 @@
   font-size: 14px;
 }
 
-// breadcrumbs item
+/* breadcrumbs item */
 
 .breadcrumbs__item {
   display: inline-block;
@@ -23,6 +22,6 @@
   color: $base-body-color;
 
   .icon {
-    fill: currentColor;
+    fill: currentcolor;
   }
 }

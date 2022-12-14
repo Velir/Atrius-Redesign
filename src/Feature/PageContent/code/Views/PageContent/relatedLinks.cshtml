@@ -1,7 +1,7 @@
-﻿@using Thread.Feature.PageContent
-@using Thread.Foundation.Mvc.Extensions
-@using Thread.Foundation.Theme.Extensions
-@model Thread.Feature.PageContent.Models.RelatedLinksModel
+@using AtriusHealth.Feature.PageContent
+@using AtriusHealth.Foundation.Mvc.Extensions
+@using AtriusHealth.Foundation.Theme.Extensions
+@model AtriusHealth.Feature.PageContent.Models.RelatedLinksModel
 
 @if (Sitecore.Context.PageMode.IsExperienceEditorEditing || Model.IsValid())
 {
@@ -18,11 +18,11 @@
           <li class="related-links__link">
             @if (Sitecore.Context.PageMode.IsExperienceEditorEditing)
             {
-              @Html.Sitecore().Field(link.Link, new { @class = "arrow-link" })
+              @Html.Sitecore().Field(link.Link, new { @class = "text-w-icon" })
             }
             else
             {
-              @Html.Sitecore().BeginField(link.Link, new { wrap = "span", @class = "arrow-link" })
+              @Html.Sitecore().BeginField(link.Link, new { wrap = "span", @class = "text-w-icon" })
               @Html.RenderSvg("arrow-right", "icon icon--arrow-right")
               @Html.Sitecore().EndField()
             }

@@ -1,0 +1,283 @@
+/* This file is using the `_` so it can be included earlier in the bundle to make overrides easier */
+@import "../../../scss/variables/index";
+
+:root {
+  --btn-display: inline-block;
+  --btn-border-radius: 100px;
+  --btn-padding: 12px 24px;
+  --btn-font: var(--font-ui-labels-ui-md-smb);
+  --btn-label-margin-inline: 8px;
+  --btn-icon: 24px;
+  --btn-icon-height: 48px;
+  --btn-icon-width: 48px;
+  --btn-margin-inline: var(--btn-label-margin-inline);
+  --btn-yellow: var(--color-yellow-primary);
+  --btn-dyellow: var(--color-yellow-300);
+  --btn-blue: var(--color-blue-800);
+  --btn-white: var(--color-design-system-white);
+  --btn-grey: var(--color-neutral-300);
+  --btn-dgrey: var(--color-neutral-900);
+  --btn-lgrey: var(--btn-lgrey);
+}
+
+.btn {
+  display: var(--btn-display);
+  padding: var(--btn-padding);
+  font: var(--btn-font);
+  text-decoration: none;
+  vertical-align: middle;
+  border-radius: var(--btn-border-radius);
+  background: var(--color-green-500);
+  transition: color 0.35s, background-color 0.35s, border-color 0.35s;
+  cursor: pointer;
+
+  .btn__label {
+    margin-inline: var(--btn-margin-inline);
+    font: var(--btn-font);
+    vertical-align: middle;
+  }
+
+  .icon {
+    height: var(--btn-icon);
+    width: var(--btn-icon);
+  }
+
+  &.btn--xsm {
+    --btn-padding: 8px 12px;
+    --btn-font: var(--font-ui-labels-ui-xsm-smb);
+  }
+
+  &.btn--search {
+    --btn-padding: 4px 10px;
+    --btn-font: var(--font-ui-labels-ui-xxsm-med);
+    --btn-icon: 16px;
+  }
+
+  &.btn--small {
+    --btn-icon-height: 32px;
+    --btn-icon-width: 32px;
+  }
+
+  &.btn--icon {
+    --btn-padding: 0;
+    --btn-icon: 16px;
+    --btn-display: inline-grid;
+    --btn-border-radius: 50%;
+    --btn-margin-inline: 0;
+    align-content: center;
+    justify-content: center;
+    height: var(--btn-icon-height);
+    width: var(--btn-icon-width);
+  }
+}
+
+.btn--disabled,
+.btn[disabled="true"] {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* modifiers
+ ** filled dark */
+
+.btn--filled.btn--dark {
+  color: var(--btn-white);
+  background: var(--btn-blue);
+
+  .icon {
+    color: var(--btn-yellow);
+  }
+
+  &:hover {
+    color: var(--btn-blue);
+    background: var(--btn-yellow);
+
+    .icon {
+      color: var(--btn-blue);
+    }
+  }
+
+  &:active {
+    text-decoration: underline;
+  }
+
+  &[disabled] {
+    color: var(--btn-grey);
+    background: var(--btn-white);
+
+    .icon {
+      color: var(--btn-grey);
+    }
+  }
+}
+
+/* // filled light */
+
+.btn--filled.btn--light {
+  color: var(--btn-blue);
+  background: var(--btn-yellow);
+
+  .icon {
+    color: var(--btn-blue);
+  }
+
+  &:hover {
+    color: var(--btn-blue);
+    text-decoration: underline;
+    background: var(--btn-white);
+
+    .icon {
+      color: var(--btn-yellow);
+    }
+  }
+
+  &:active {
+    color: var(--btn-blue);
+    text-decoration: underline;
+    background: var(--btn-lgrey);
+  }
+
+  &[disabled] {
+    color: var(--btn-grey);
+    background: var(--btn-white);
+
+    .icon {
+      color: var(--btn-grey);
+    }
+  }
+}
+
+/* // outline light */
+
+.btn--outline.btn--light {
+  color: var(--btn-dgrey);
+  border: 2px solid var(--btn-dgrey);
+  background-color: transparent;
+
+  .icon {
+    color: var(--btn-yellow);
+  }
+
+  &:hover {
+    text-decoration: underline;
+    border-color: var(--btn-yellow);
+    background-color: var(--btn-yellow);
+
+    .icon {
+      color: var(--btn-blue);
+    }
+  }
+
+  &:active {
+    color: var(--btn-white);
+    text-decoration: underline;
+    border-color: var(--btn-blue);
+    background-color: var(--btn-blue);
+  }
+
+  &[disabled] {
+    color: var(--btn-grey);
+    border-color: var(--btn-grey);
+
+    .icon {
+      color: var(--btn-grey);
+    }
+  }
+}
+
+/* // outline dark */
+
+.btn--outline.btn--dark {
+  color: var(--btn-white);
+  border: 2px solid var(--btn-yellow);
+  background-color: transparent;
+
+  .icon {
+    color: var(--btn-yellow);
+  }
+
+  &:hover {
+    color: var(--btn-blue);
+    text-decoration: underline;
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  &:active {
+    color: var(--btn-blue);
+    text-decoration: underline;
+    border-color: var(--btn-yellow);
+    background-color: var(--btn-yellow);
+  }
+
+  &[disabled] {
+    color: var(--btn-grey);
+    border-color: var(--btn-grey);
+
+    .icon {
+      color: var(--btn-grey);
+    }
+  }
+}
+
+.btn--link {
+  border: none;
+  background-color: transparent;
+
+  &.btn--light {
+    color: var(--btn-blue);
+
+    .icon {
+      color: var(--btn-yellow);
+    }
+
+    &:hover {
+      text-decoration: underline;
+
+      .icon {
+        color: var(--btn-blue);
+      }
+    }
+
+    &[disabled] {
+      color: var(--btn-grey);
+
+      .icon {
+        color: var(--btn-grey);
+      }
+    }
+
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
+  &.btn--dark {
+    color: var(--btn-white);
+
+    .icon {
+      color: var(--btn-dyellow);
+    }
+
+    &:hover {
+      text-decoration: underline;
+
+      .icon {
+        color: var(--btn-white);
+      }
+    }
+
+    &[disabled] {
+      color: var(--btn-grey);
+
+      .icon {
+        color: var(--btn-grey);
+      }
+    }
+
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}

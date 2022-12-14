@@ -1,13 +1,11 @@
-@import "../../../scss/variables/_mixins.scss";
-@import "../../../scss/variables/_colors.scss";
+@import "../../../scss/variables/index";
 
-// content-list.scss
+/* // content-list.scss
 // Define content list styles here
 
-// base
+// base */
 
 .content-list {
-  // @include component-whitespace();
 }
 
 .content-list__heading {
@@ -24,13 +22,13 @@
   }
 }
 
-// list
+/* // list */
 
 .content-list__list {
   @include zero-list;
 }
 
-// items
+/* // items */
 
 .content-list__item {
   overflow: hidden;

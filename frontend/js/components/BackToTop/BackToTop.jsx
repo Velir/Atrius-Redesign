@@ -1,8 +1,7 @@
 import React from "react";
 import {} from "prop-types";
-import "./back-to-top.scss";
-const propTypes = {};
 
+const propTypes = {};
 const backToTop = (props) => {
   const {} = props;
   return (

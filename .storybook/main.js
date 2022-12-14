@@ -1,47 +1,47 @@
-const path = require("path");
-
-
+const path = require('path')
 module.exports = {
-  stories: ["../frontend/**/*.stories.jsx"],
+  features: {
+    postcss: true,
+  },
+  stories: ['../frontend/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    "@whitespace/storybook-addon-html",
-    "storybook-dark-mode",
-    "@storybook/preset-scss",
-    "@storybook/addon-a11y",
-    "@storybook/addon-links", 
-    "@storybook/addon-essentials",
-    // {
-    //   name: "@storybook/addon-essentials",
-    //   options: {
-    //     backgrounds: false,
-    //   },
-    // },
+    {
+      name: '@storybook/preset-scss',
+      options: {
+        sassLoaderOptions:{
+          implementation: require("sass"),
+        },
+        cssLoaderOptions: {
+          importLoaders: 2,
+        }
+      },
+    },
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+      },
+    },
+    '@whitespace/storybook-addon-html',
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
   ],
-  core:{
-    disableTelemetry: true,
-  },
+  framework: '@storybook/react',
+  staticDirs: ['../build'],
   webpackFinal: async (config, { configType }) => {
-    // get index of css rule
-    const ruleCssIndex = config.module.rules.findIndex(
-      (rule) => rule.test.toString() === "/\\.css$/"
-    );
-
-    // map over the 'use' array of the css rule and set the 'module' option to true
-    config.module.rules[ruleCssIndex].use.map((item) => {
-      if (item.loader && item.loader.includes("/css-loader/")) {
-        item.options.modules = {
-          mode: "local",
-          localIdentName:
-            configType === "PRODUCTION"
-              ? "[local]__[hash:base64:5]"
-              : "[name]__[local]__[hash:base64:5]",
-        };
-      }
-
-      return item;
-    });
-
-    return config;
+    // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
+    // You can change the configuration based on that.
+    // 'PRODUCTION' is used when building the static version of storybook.
+    // Make whatever fine-grained changes you need
+    config.module.rules.push({
+      test: /\.(pc|sa|sc|c)ss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader'],
+      include: path.resolve(__dirname, '../'),
+      exclude: path.resolve('./node_modules/', '../'),
+    })
+    
+    return config
   },
-
-};
+}

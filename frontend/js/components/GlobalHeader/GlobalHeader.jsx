@@ -1,6 +1,5 @@
 import React from "react";
 import { object, array } from "prop-types";
-
 import SiteLogo from "../SiteLogo/SiteLogo.jsx";
 import SearchMenu from "../SearchMenu/SearchMenu.jsx";
 import UtilityNav from "../UtilityNav/UtilityNav.jsx";
@@ -17,29 +16,26 @@ const propTypes = {
 
 const globalHeader = (props) => {
   const { primaryNav, siteLogo, utilityNav, langSelect } = props;
-
   return (
     <section className="global-header">
       <div className="global-header__desktop">
         <div className="global-header__top">
-          <div className="global-header__top-container container container--100">
-            <UtilityNav {...utilityNav} />
-            {langSelect && <LanguageSelector {...langSelect} />}
+          <div className="global-header__top-container">
+            <SiteLogo {...siteLogo} />
+            <div className="global-header__utility-container">
+              <UtilityNav {...utilityNav} />
+              {langSelect && <LanguageSelector {...langSelect} />}
+            </div>
           </div>
         </div>
-        <div className="global-header__container container container--100">
-          <div className="global-header__bottom">
-            <div className="global-header__bottom-left">
-              <SiteLogo {...siteLogo} />
-            </div>
-            <div className="global-header__bottom-right">
-              <PrimaryNav primaryNav={primaryNav} utilityNav={utilityNav} />
-              <SearchMenu />
-            </div>
+        <div className="global-header__bottom theme-dark theme-dark--blue">
+          <div className="global-header__bottom-container">
+            <PrimaryNav primaryNav={primaryNav} utilityNav={utilityNav} />
+            <SearchMenu />
           </div>
         </div>
       </div>
-      <div className="global-header__container container container--100">
+      <div className="global-header__container container container--100 ">
         <div className="global-header__mobile">
           <SiteLogo {...siteLogo} />
           <SearchMenu />

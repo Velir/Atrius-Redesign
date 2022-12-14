@@ -1,8 +1,6 @@
-@import "../../../scss/variables/_colors.scss";
-@import "../../../scss/variables/_variables.scss";
-@import "../../../scss/variables/_mixins.scss";
+@import "../../../scss/variables/index";
 
-// NOTE "position: relative;" needs to be added to the parent with full width.
+/* NOTE "position: relative;" needs to be added to the parent with full width. */
 .mobile-menu {
   .nav-toggle__label {
     @include visually-hidden;

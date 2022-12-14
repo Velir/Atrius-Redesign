@@ -2,9 +2,9 @@ import React from "react";
 import { bool, string, number, object } from "prop-types";
 import cx from "classnames";
 import uniqueid from "lodash.uniqueid";
-
 import BackgroundVideo from "../BackgroundVideo/BackgroundVideo.jsx";
 import ImageElement from "../ImageElement/ImageElement.jsx";
+// import "./hero.scss";
 
 const propTypes = {
   height: bool,
@@ -46,7 +46,7 @@ const Hero = (props) => {
     {},
     opacityStyles,
     objPositionStyles,
-    heightStyles
+    heightStyles,
   );
 
   const titleID = uniqueid("hero-");
@@ -84,13 +84,12 @@ const Hero = (props) => {
           dangerouslySetInnerHTML={{ __html: title }}
         ></h2>
         <div className="hero__subtitle">{subtitle}</div>
-        <a
-          href="#"
+        <button
           className="hero__action btn btn--primary"
           aria-labelledby={titleID}
         >
           {cta}
-        </a>
+        </button>
       </div>
     </section>
   );

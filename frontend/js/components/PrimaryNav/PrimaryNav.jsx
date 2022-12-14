@@ -1,9 +1,11 @@
 import React from "react";
 import { arrayOf, shape, string, bool } from "prop-types";
 import cx from "classnames";
-
 import Icon from "../Icon/Icon.jsx";
+// import "./primary-nav.scss";
 
+import { copyKeys } from "ramda-adjunct";
+import TextWithIcon from "../TextWithIcon/TextWithIcon.jsx";
 const propTypes = {
   primaryNav: arrayOf(
     shape({
@@ -23,7 +25,6 @@ const propTypes = {
 
 const PrimaryNav = (props) => {
   const { primaryNav } = props;
-
   return (
     <nav className="primary-nav js-primary-nav" aria-label="Primary">
       <ul className="primary-nav__items">
@@ -39,8 +40,8 @@ const PrimaryNav = (props) => {
             >
               {!hasSubMenu && !navItem.active && (
                 <a
-                  className="primary-nav__top-link js-primary-nav-top-link"
                   href={navItem.href}
+                  className="primary-nav__top-link js-primary-nav-top-link"
                 >
                   {navItem.label}
                 </a>
@@ -61,8 +62,10 @@ const PrimaryNav = (props) => {
                     type="button"
                     className="primary-nav__top-link primary-nav__top-link--button js-primary-nav-menu-button"
                   >
-                    <span>{navItem.label}</span>
-                    <Icon iconName="chevron-down" aria-hidden="true" />
+                    <TextWithIcon
+                      text={navItem.label}
+                      icon="keyboard_arrow_down"
+                    />
                   </button>
                   <ul className="primary-nav__submenu js-primary-nav-menu-content">
                     {navItem.submenu.map((subItem, i) => {
